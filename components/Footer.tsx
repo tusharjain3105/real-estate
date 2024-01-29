@@ -14,7 +14,7 @@ const Footer = () => {
           <p className="text-lg">
             Welcome to the pinnacle of enchantment, a realm of heavenly bliss:
           </p>
-          <p>
+          <p className="mt-2">
             Embark on a journey of curiosity,fueled by the fervor for what lies
             ahead
           </p>
@@ -38,22 +38,22 @@ const Footer = () => {
             items={[
               {
                 title: "Iconic's RRR County",
-                href: "/projects/rrr-county",
+                href: "/projects/iconics-rrr-county",
                 className: "",
               },
               {
                 title: "Iconic's Metro County",
-                href: "/projects/metro-county",
+                href: "/projects/iconics-metro-county",
                 className: "",
               },
               {
                 title: "Iconic's Treasure County",
-                href: "/projects/treasure-county",
+                href: "/projects/iconics-treasure-county",
                 className: "",
               },
               {
                 title: "Iconic's Vintage County",
-                href: "/projects/vintage-county",
+                href: "/projects/iconics-vintage-county",
                 className: "",
               },
             ]}

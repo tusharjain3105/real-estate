@@ -24,9 +24,6 @@ const HomePage = () => {
         ]}
       />
 
-      {/* <div className="p-3 md:px-32 md:my-16">
-        <div className="title text-lg md:text-xl uppercase my-3">Projects</div>
-      </div> */}
       <div id="projects"></div>
       <Project />
       <Project />
