@@ -39,7 +39,7 @@ export const Form = async () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen pt-10 pb-10">
+    <div className="flex justify-center items-center pt-10 pb-10">
       <div className="bg-white w-auto h-aotu p-8 rounded-lg">
         <h2 className="text-2xl font-bold text-center text-orange-600 mb-4">
           Reach out to us

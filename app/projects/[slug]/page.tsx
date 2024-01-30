@@ -1,10 +1,12 @@
 import MyCarousel from "@/components/MyCarousel";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { indianPriceFormatter } from "@/lib/utils";
 import { db } from "@/prisma/prisma";
 import { redirect } from "next/navigation";
 
-const ProjectPage = async ({ params: { slug } }) => {
+const ProjectPage = async ({ params: { slug }, searchParams: { token } }) => {
+  const isAdmin = token === process.env.AUTH_TOKEN;
   slug = decodeURIComponent(slug);
   const project = await db.project.findUnique({
     where: {
@@ -30,20 +32,60 @@ const ProjectPage = async ({ params: { slug } }) => {
   const items = images.map((src) => ({ src }));
 
   return (
-    <div className="p-3 md:px-32 md:py-8">
+    <form className="p-3 md:px-32 md:py-8">
       <div className="flex justify-between my-2">
-        <div className="address">{address1}</div>
+        {isAdmin ? (
+          <Input
+            name="address1"
+            placeholder="Address 1"
+            defaultValue={address1}
+            className="max-w-md"
+          />
+        ) : (
+          <div className="address">{address1}</div>
+        )}
         <div>
-          Launch Date:{" "}
-          {Intl.DateTimeFormat("en-us", {
-            dateStyle: "medium",
-          }).format(launchDate)}
+          Launch Date:
+          <span className="ml-1">
+            {isAdmin ? (
+              <Input
+                type="datetime-local"
+                name="launchDate"
+                defaultValue={launchDate.toDateString()}
+              />
+            ) : (
+              Intl.DateTimeFormat("en-us", {
+                dateStyle: "medium",
+              }).format(launchDate)
+            )}
+          </span>
         </div>
       </div>
       <div className="flex justify-between mb-3">
         <div className="left">
-          <h1 className="text-2xl font-semibold">{title}</h1>
-          <h2 className="text-lg">By {by}</h2>
+          {isAdmin ? (
+            <Input
+              name="title"
+              placeholder="Project Name"
+              defaultValue={title}
+              className="max-w-md"
+            />
+          ) : (
+            <h1 className="text-2xl font-semibold">{title}</h1>
+          )}
+          <h2 className="text-lg">
+            By{" "}
+            {isAdmin ? (
+              <Input
+                name="by"
+                placeholder="By"
+                defaultValue={by}
+                className="max-w-md"
+              />
+            ) : (
+              by
+            )}
+          </h2>
           <h3 className="text-lg">{address2}</h3>
         </div>
         <div className="right text-right">
@@ -62,7 +104,7 @@ const ProjectPage = async ({ params: { slug } }) => {
 
       <MyCarousel items={items} />
       <div className="my-2">{content}</div>
-    </div>
+    </form>
   );
 };
 export default ProjectPage;
