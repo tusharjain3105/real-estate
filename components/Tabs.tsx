@@ -1,10 +1,12 @@
 import { cn } from "@/lib/utils";
+import { getProjectsSubtabs } from "@/server-actions";
 import Tab from "./Tab";
 
-const Tabs = ({
+const Tabs = async ({
   axis = null,
   className = "",
   tabClassName = "",
+  hiddenTabs = [],
   items = [
     {
       title: "Home",
@@ -20,28 +22,7 @@ const Tabs = ({
       title: "Projects",
       href: "/#projects",
       className: "",
-      subtabs: [
-        {
-          title: "Iconic's RRR County",
-          href: "/projects/rrr-county",
-          className: "",
-        },
-        {
-          title: "Iconic's Metro County",
-          href: "/projects/metro-county",
-          className: "",
-        },
-        {
-          title: "Iconic's Treasure County",
-          href: "/projects/treasure-county",
-          className: "",
-        },
-        {
-          title: "Iconic's Vintage County",
-          href: "/projects/vintage-county",
-          className: "",
-        },
-      ],
+      subtabs: getProjectsSubtabs(),
     },
     {
       title: "About Us",
@@ -69,23 +50,31 @@ const Tabs = ({
         className
       )}
     >
-      {items.map((item) => (
-        <li key={item.title} className="relative group">
-          <Tab href={item.href} className={cn(tabClassName, item.className)}>
-            {item.title}
-          </Tab>
-          {!!item.subtabs?.length && (
-            <div className="absolute hidden group-hover:block top-[120%] bg-orange-500 p-2 rounded-md w-60 shadow z-20">
-              <Tabs
-                axis="y"
-                className="text-sm gap-2"
-                tabClassName="p-0 capitalize"
-                items={item.subtabs}
-              />
-            </div>
-          )}
-        </li>
-      ))}
+      {items.map(async (item) => {
+        if (hiddenTabs.includes(item.title)) return null;
+        const subtabs = await item.subtabs;
+        if (item.title)
+          return (
+            <li key={item.title} className="relative group">
+              <Tab
+                href={item.href}
+                className={cn(tabClassName, item.className)}
+              >
+                {item.title}
+              </Tab>
+              {!!subtabs?.length && (
+                <div className="absolute hidden group-hover:block top-[120%] bg-orange-500 p-2 rounded-md w-60 shadow z-20">
+                  <Tabs
+                    axis="y"
+                    className="text-sm gap-2"
+                    tabClassName="p-0 capitalize"
+                    items={subtabs}
+                  />
+                </div>
+              )}
+            </li>
+          );
+      })}
     </ul>
   );
 };

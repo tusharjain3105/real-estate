@@ -4,8 +4,9 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import Logo from "./Logo";
 import Tabs from "./Tabs";
 import { Separator } from "./ui/separator";
+import { getProjectsSubtabs } from "@/server-actions";
 
-const Footer = () => {
+const Footer = async () => {
   return (
     <footer className="bg-orange-400 text-white shadow">
       <section className="p-2 md:px-20 md:py-10 grid md:grid-cols-[1.5fr_1fr_1fr_1.5fr] gap-5">
@@ -27,6 +28,7 @@ const Footer = () => {
             axis="y"
             className="text-sm gap-2"
             tabClassName="p-0 capitalize"
+            hiddenTabs={["Projects"]}
           />
         </div>
         <div>
@@ -35,28 +37,7 @@ const Footer = () => {
             axis="y"
             className="text-sm gap-2"
             tabClassName="p-0 capitalize"
-            items={[
-              {
-                title: "Iconic's RRR County",
-                href: "/projects/iconics-rrr-county",
-                className: "",
-              },
-              {
-                title: "Iconic's Metro County",
-                href: "/projects/iconics-metro-county",
-                className: "",
-              },
-              {
-                title: "Iconic's Treasure County",
-                href: "/projects/iconics-treasure-county",
-                className: "",
-              },
-              {
-                title: "Iconic's Vintage County",
-                href: "/projects/iconics-vintage-county",
-                className: "",
-              },
-            ]}
+            items={await getProjectsSubtabs()}
           />
         </div>
         <div>

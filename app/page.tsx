@@ -4,7 +4,18 @@ import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 import Link from "next/link";
 
-const HomePage = () => {
+const HomePage = async () => {
+  const projects = await prisma.project.findMany({
+    where: {
+      active: true,
+    },
+    select: {
+      slug: true,
+      title: true,
+      description: true,
+      images: true,
+    },
+  });
   return (
     <div>
       <MyCarousel
@@ -25,21 +36,15 @@ const HomePage = () => {
       />
 
       <div id="projects"></div>
-      <Project />
-      <Project />
-      <Project />
-      <Project />
+      {projects.map((p) => (
+        <Project key={p.title} href={`/projects/${p.slug}`} {...p} />
+      ))}
     </div>
   );
 };
 export default HomePage;
 
-const Project = ({
-  title = "Iconic's RRR County",
-  description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et voluptas delectus explicabo veniam totam, nobis blanditiis voluptatum cumque aspernatur quasi iste, inventore dolore nihil eos obcaecati iusto qui nam temporibus?",
-  images = ["/rrr1.jpeg", "/rrr2.jpeg", "/rrr3.jpeg", "/rrr4.jpeg"],
-  href = "/",
-}) => {
+const Project = ({ title, description, images, href }) => {
   const TitleAndDesc = (
     <>
       <div className="text-2xl font-semibold">{title}</div>

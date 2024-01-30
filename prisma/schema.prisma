@@ -21,11 +21,12 @@ model Project {
   priceEnd    Int
   emiStart    Int
   content     String
+  active      Boolean   @default(true)
   contacts    Contact[]
 }
 
 model Contact {
-  id             String  @id @map("_id") @db.ObjectId
+  id             String  @id @default(auto()) @map("_id") @db.ObjectId
   phoneNumber    String  @unique
   whatsappNumber String  @unique
   email          String? @unique
