@@ -7,7 +7,7 @@ const Logo = () => {
       <Image
         src={logo}
         alt="Logo"
-        height={50}
+        height={60}
         width={50}
         className="bg-white rounded-full"
       />
