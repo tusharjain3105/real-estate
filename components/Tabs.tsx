@@ -44,7 +44,7 @@ const Tabs = async ({
   return (
     <ul
       className={cn(
-        "flex flex-col md:flex-row gap-5 md:items-center uppercase font-normal text-base",
+        "flex flex-col md:flex-row gap-5 md:items-center uppercase font-normal text-lg",
         axis === "x" && "flex-row md:flex-row",
         axis === "y" && "flex-col md:flex-col items-start md:items-start",
         className
