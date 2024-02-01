@@ -41,18 +41,18 @@ export const Form = async () => {
   return (
     <div className="flex justify-center items-center pt-10 pb-10">
       <div className="bg-white w-auto h-aotu p-8 rounded-lg">
-        <h2 className="text-2xl font-bold text-center text-orange-600 mb-4">
+        <h2 className="text-2xl font-bold text-center text-orange-600 mb-2">
           Reach out to us
         </h2>
-        <h6 className="text-3xl font-bold mb-4">Book Free Consultation</h6>
-        <form action={saveContact} className="space-y-2 group">
+        <h6 className="text-3xl font-bold mb-2">Book Free Consultation</h6>
+        <form action={saveContact} className="space-y-1 group">
           <label htmlFor="project" className="block font-medium">
             Property
           </label>
           <select
             name="project"
             id="project"
-            className="w-full p-2 border rounded-lg"
+            className="w-full p-1 border rounded-lg"
           >
             {projects.map(({ title }) => (
               <option key={title} value={title}>
@@ -69,7 +69,7 @@ export const Form = async () => {
             id="name"
             name="name"
             placeholder="Name"
-            className="w-full p-2 border rounded-lg"
+            className="w-full p-1 border rounded-lg"
             required
           />
 
@@ -81,7 +81,7 @@ export const Form = async () => {
             id="email"
             name="email"
             placeholder="Email"
-            className="w-full p-2 border rounded-lg"
+            className="w-full p-1 border rounded-lg"
           />
 
           <label htmlFor="phone" className="block font-medium">
@@ -92,7 +92,7 @@ export const Form = async () => {
             id="phone"
             name="phone"
             placeholder="Phone"
-            className="w-full p-2 border rounded-lg"
+            className="w-full p-1 border rounded-lg"
             required
           />
 
@@ -104,7 +104,7 @@ export const Form = async () => {
             id="whatsapp"
             name="whatsapp"
             placeholder="WhatsApp Number"
-            className="w-full p-2 border rounded-lg"
+            className="w-full p-1 border rounded-lg"
           />
 
           <div className="my-5">
@@ -113,7 +113,7 @@ export const Form = async () => {
           </div>
 
           <div>
-            <SubmitButton className="w-full p-3 bg-orange-500 hover:bg-orange-600  text-white rounded-lg cursor-pointer hover-orange-800 group-has-[#privacy:not(:checked)]:opacity-30 group-has-[#privacy:not(:checked)]:pointer-events-none">
+            <SubmitButton className="w-full p-2 bg-orange-500 hover:bg-orange-600  text-white rounded-lg cursor-pointer hover-orange-800 group-has-[#privacy:not(:checked)]:opacity-30 group-has-[#privacy:not(:checked)]:pointer-events-none">
               Submit
             </SubmitButton>
           </div>

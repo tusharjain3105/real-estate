@@ -8,13 +8,13 @@ const AboutPage = () => {
   return (
     <div>
       <Image src={Aboutus} alt="about page" className="h-96 " />
-      <div className="px-20 py-5">
-        <div className="flex mt-4">
-          <section className="w-1/2 mr-4 mt-12">
+      <div className="md:px-20 px-4 py-5">
+        <div className="md:flex mt-4">
+          <section className="md:w-1/2 mr-4 mt-12">
             <h4 className="text-orange-500 text-2xl font-semibold mb-2">
               _________Our Story
             </h4>
-            <h1>Iconic Infra Group</h1>
+            <h1 className="text-xl mb-2">Iconic Infra Group</h1>
             <p>Discovering Exceptional Styles and Architecture</p>
             <p>
               {`In the dynamic realm of design, our studio stands as a beacon of
@@ -25,7 +25,7 @@ const AboutPage = () => {
               individual needs of our clients.`}
             </p>
           </section>
-          <section className="w-1/2">
+          <section className="md:w-1/2 mt-4">
             <Image
               src={Choutuppal_RRR}
               alt="about page"
@@ -44,8 +44,8 @@ const AboutPage = () => {
             </center>
           </section>
           <section className="w-1/2 ">
-            <h1 className="text-red-500 bold">MR. N M RAO</h1>
-            <p>MANAGING DIRECTOR</p>
+            <h1 className="text-red-500 text-xl mb-2">MR. N M RAO</h1>
+            <p className="text-xl mb-2">MANAGING DIRECTOR</p>
             <hr className="line"></hr>
             <p>
               {`MR. N M RAO is worked in the real estate sector for ten years. He
@@ -55,17 +55,17 @@ const AboutPage = () => {
               Chairman. He also participates in the conception and execution of
               Subhagruha projects.`}
             </p>
-            <p>FORTUNE FAVOURS THE BRAVE</p>
+            <p className="pt-4">FORTUNE FAVOURS THE BRAVE</p>
           </section>
         </div>
         <div className="flex  mt-4">
           <section className="w-1/2">
-            <h1>MR. D V RAMA RAJU U</h1>
-            <p>MANAGING DIRECTOR</p>
+            <h1 className="text-red-500  text-xl mb-2">MR. D V RAMA RAJU U</h1>
+            <p className="text-xl mb-2">MANAGING DIRECTOR</p>
             <hr className="line"></hr>
             <p>
               Experience the Real Difference of our Real Services with us. A New
-              World is Rising..{" "}
+              World is Rising..
             </p>
             <p>{`Let's discover it together.`}</p>
           </section>
