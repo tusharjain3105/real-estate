@@ -53,6 +53,9 @@ const AdminPage = async ({ searchParams }) => {
             <Badge className={cn(!active && "opacity-50")}>{title}</Badge>
           </Link>
         ))}
+        <Link href={`/projects/add-new?token=${token}`}>
+          <Badge variant="secondary">+ Add New</Badge>
+        </Link>
       </div>
       <div className="header">
         <div className="text-lg font-semibold py-3 border-b">
