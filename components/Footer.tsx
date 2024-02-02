@@ -26,7 +26,7 @@ const Footer = async () => {
           </div>
           <Tabs
             axis="y"
-            className="text-sm gap-2 capitalize"
+            className="text-lg gap-2 capitalize"
             tabClassName="p-0"
             hiddenTabs={["Projects"]}
           />
@@ -35,7 +35,7 @@ const Footer = async () => {
           <div className="text-xl uppercase mb-3 font-semibold">Projects</div>
           <Tabs
             axis="y"
-            className="text-sm gap-2 capitalize"
+            className="text-lg gap-2 capitalize"
             tabClassName="p-0"
             items={await getProjectsSubtabs()}
           />

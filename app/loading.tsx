@@ -1,7 +1,9 @@
 
 const Loading = () => {
     return (
-      <div style={{marginTop:'200px'}}>loading</div>
+      <div className="grid place-content-center h-screen">
+        <div className="m-6">loadindg</div>
+      </div>
     )
   }
   

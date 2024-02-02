@@ -43,8 +43,8 @@ const HomePage = async () => {
       {projects.map((p) => (
         <Project key={p.title} href={`/projects/${p.slug}`} {...p} />
       ))}
-      <section className="md:flex md:px-32  mb-10 px-4 h-[500px] bg-white">
-        <div className=" md:w-1/2">
+      <section className="md:flex md:px-32  mb-10 px-4  bg-orange-100">
+        <div className="mt-2 md:w-1/2">
 
           <p className="mt-20 md:text-4xl font-semibold mb-7">Why You Should Invest Right Now In January 2024 @ Iconic County?</p>
           <div className="flex mt-5">
@@ -86,10 +86,10 @@ const HomePage = async () => {
           <p className="mb-4">
             Closer To Proposed Dry Port. Future plan of High Speed Train. Proposed L B Nagar to Choutuppal Metro Rail.
           </p>
-          <Image src={Location} alt='lacaton information' />
+          <Image src={Location} alt='lacaton information'/>
         </div>
 
-        <div className='location-information  mt-5 md:mt-10 '>
+        <div className='location-information  mt-5 md:mt-10  flex-1 '>
           <div className="flex justify-evenly ">
             <div className=' text-center'>
               <Image src={Ramuji} alt="ramuji" className='bg-orange-500 rounded-full' />
@@ -115,34 +115,41 @@ const HomePage = async () => {
             </div>
           </div>
           <center className="mt-5 md:mt-20">
-            <a href='/contact' className=' bg-orange-500 text-white  p-3 rounded  text-center'>Get Price</a>
+            <Link href='#contact' className='scroll-smooth bg-orange-500 text-white  p-3 rounded  text-center'>Get Price</Link>
           </center>
         </div>
       </div>
     
-    <div className="md:flex justify-center md:space-x-10  md:py-8 md:px-32 px-4  bg-slate-50">
-      <div className=" hover:bg-slate-100 bg-white rounded-full md:p-20 ">
+    <div className="flex flex-col md:flex-row items-center justify-center md:space-x-10  md:py-[100px] py-10 gap-10  md:px-32 px-4  bg-orange-100">
+      <div className=" hover:bg-slate-50 bg-white rounded-full grid place-items-center h-64 w-64 ">
         <center>
         <p className="text-6xl font-bold text-gray-800">850</p>
         <p className="text-lg text-gray-600">HAPPY CLIENTS</p>
         </center>
       </div>
-      <div className="  hover:bg-slate-100 bg-white rounded-full  md:p-20 ">
+      <div className="  hover:bg-slate-50 bg-white rounded-full grid place-items-center h-64 w-64  ">
         <center>
         <p className="text-6xl font-bold text-gray-800">12</p>
         <p className="text-lg text-gray-600">YEARS OF EXPERIENCE</p>
         </center>
       </div>
-      <div className=" hover:bg-slate-100 bg-white rounded-full  md:p-20 ">
+      <div className=" hover:bg-slate-50 bg-white rounded-full grid place-items-center h-64 w-64 ">
         <center>
         <p className="text-6xl font-bold text-gray-800">20</p>
         <p className="text-lg text-gray-600">PROJECTS COMPLETED</p>
         </center>
       </div>
     </div>
+    
+    <div className="">
+        <div>
+          <center className="text-4xl font-bold">
+          Bank Loan Available
+          </center>
+        </div>
+    </div>
 
-
-      <div className="bg-hero-pattern">
+      <div id="contact" className="bg-hero-pattern">
         <Form />
       </div>
     </div>
