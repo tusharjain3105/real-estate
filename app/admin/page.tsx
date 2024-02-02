@@ -85,7 +85,7 @@ const AdminPage = async ({ searchParams }) => {
                 <TableCell>{p.phoneNumber}</TableCell>
                 <TableCell>{p.whatsappNumber}</TableCell>
                 <TableCell>{p.email}</TableCell>
-                <TableCell>{p.projectName}</TableCell>
+                <TableCell>{p.projectName}</TableCell> 
               </TableRow>
             ))}
           </TableBody>
