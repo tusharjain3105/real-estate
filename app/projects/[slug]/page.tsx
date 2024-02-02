@@ -10,6 +10,7 @@ import { format } from "date-fns";
 import { pick } from "lodash";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import Image from "next/image";
 
 const ProjectPage = async ({
   params: { slug },
@@ -215,6 +216,54 @@ const ProjectPage = async ({
       ) : (
         <div className="my-2">{content}</div>
       )}
+        <div className='md:flex  px-4 mb-5'>
+        <div className='md:w-1/2  md:flex-col '>
+          <div className='location mb-10'>
+            <h5 className="text-lg">Location highlight</h5>
+            <h2 className="text-2xl">Iconic RRR County Of Connectivity</h2>
+          </div>
+          <p className="mb-4">
+            Beside proposed 300' Regional Ring Road. Project at choutuppal to valigonda 100 feet road. Closer to proposed dry Port. 20 Min Drive from ORR. Near Yadadri Temple. Warangal and Vijayawada Connecting Roads.
+          </p>
+          <p className="mb-4">
+            Near to Many Schools & Engineering Colleges. Closer To Dandumalkapur Green Industrial Park. Closer To Pharmaceuticals and Laboratories Like SRINI. DIVIS, NOSCH.
+          </p>
+          <p className="mb-4">
+            Closer To Proposed Dry Port. Future plan of High Speed Train. Proposed L B Nagar to Choutuppal Metro Rail.
+          </p>
+          <Image src="https://source.unsplash.com/500x500?real-estates-4" height={500} width={500} alt='lacaton information'/>
+        </div>
+
+        <div className='location-information  mt-5 md:mt-48  flex-1 '>
+          <div className="flex ">
+            <div className='grid flex-1 place-items-center'>
+              <Image src="https://source.unsplash.com/100x100?real-estates-4"   height={100} width={100} alt="ramuji" className='bg-orange-500 rounded-full' />
+              <h2>25 min</h2>
+              <h5>Ramoji Film City</h5>
+            </div>
+            <div className='grid flex-1 place-items-center'>
+            <Image src="https://source.unsplash.com/100x100?real-estates-4"  height={100} width={100}  alt="ramuji" className='bg-orange-500 rounded-full' />
+              <h2>20 min</h2>
+              <h5>Outer Ring Road (ORR)</h5>
+            </div>
+          </div>
+          <div className="flex  md:mt-10">
+            <div className='grid flex-1 place-items-center'>
+            <Image src="https://source.unsplash.com/100x100?real-estates-4"  height={100} width={100}  alt="ramuji" className='bg-orange-500 rounded-full' />
+              <h2>5 min</h2>
+              <h5>Many Schools & <br />Engineering College</h5>
+            </div>
+            <div className='grid flex-1 place-items-center'>
+            <Image src="https://source.unsplash.com/100x100?real-estates-4"  height={100} width={100}  alt="ramuji" className='bg-orange-500 rounded-full' />
+              <h2>35 min</h2>
+              <h5>RGIA</h5>
+            </div>
+          </div>
+          <center className="mt-5 md:mt-20">
+            <Link href='#contact' className='scroll-smooth bg-orange-500 text-white  p-3 rounded  text-center'>Get Price</Link>
+          </center>
+        </div>
+      </div>
       {isAdmin && (
         <div className="flex justify-end gap-2">
           {!isEditMode ? (
@@ -224,6 +273,7 @@ const ProjectPage = async ({
               asChild
             >
               <Link href={`/projects/${slug}?token=${token}`}>Edit</Link>
+
             </SubmitButton>
           ) : (
             <SubmitButton
