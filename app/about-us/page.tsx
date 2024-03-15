@@ -8,8 +8,8 @@ const AboutPage = () => {
   return (
     <div>
       <Image src={Aboutus} alt="about page" className="h-96 " />
-      <div className="md:px-20 px-4 py-5">
-        <div className="md:flex mt-4">
+      <div className="md:px-0 px-4 py-5">
+        <div className="md:px-20  md:flex mt-4">
           <section className="md:w-1/2 mr-4 mt-12">
             <h4 className="text-orange-500 text-2xl font-semibold mb-2">
               _________Our Story
@@ -33,7 +33,7 @@ const AboutPage = () => {
             />
           </section>
         </div>
-        <div className="flex mt-4">
+        <div className="flex mt-4 md:px-20  bg-orange-100 ">
           <section className="w-1/2 ">
             <center>
               <Image
@@ -58,7 +58,7 @@ const AboutPage = () => {
             <p className="pt-4">FORTUNE FAVOURS THE BRAVE</p>
           </section>
         </div>
-        <div className="flex  mt-4">
+        <div className="flex  mt-4 md:px-20 ">
           <section className="w-1/2">
             <h1 className="text-red-500  text-xl mb-2">MR. D V RAMA RAJU U</h1>
             <p className="text-xl mb-2">MANAGING DIRECTOR</p>

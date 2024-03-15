@@ -1,7 +1,7 @@
 import { db } from "@/prisma/prisma";
 import SubmitButton from "./SubmitButton";
 
-export const Form = async () => {
+export const Form = async ({ property=null}) => {
   const projects = await db.project.findMany({
     where: {
       active: true,
@@ -14,7 +14,7 @@ export const Form = async () => {
   const saveContact = async (data: FormData) => {
     "use server";
     const name = data.get("name") as string;
-    const project = data.get("project") as string;
+    const project =property || data.get("project") as string;
     const email = data.get("email") as string;
     const phoneNumber = data.get("phone") as string;
     const whatsappNumber = data.get("whatsapp") as string;
@@ -39,13 +39,15 @@ export const Form = async () => {
   };
 
   return (
-    <div className="flex justify-center items-center pt-10 pb-10">
-      <div className="bg-white w-auto h-aotu p-8 rounded-lg">
+    <div className="flex justify-center items-center p-3">
+      <div className="bg-white w-auto h-aotu p-3 rounded-lg">
         <h2 className="text-2xl font-bold text-center text-orange-600 mb-2">
           Reach out to us
         </h2>
         <h6 className="text-3xl font-bold mb-2">Book Free Consultation</h6>
         <form action={saveContact} className="space-y-1 group">
+          {!property &&
+          <> 
           <label htmlFor="project" className="block font-medium">
             Property
           </label>
@@ -53,13 +55,15 @@ export const Form = async () => {
             name="project"
             id="project"
             className="w-full p-1 border rounded-lg"
-          >
+            >
             {projects.map(({ title }) => (
               <option key={title} value={title}>
                 {title}
               </option>
             ))}
           </select>
+            </>
+          }
 
           <label htmlFor="name" className="block font-medium">
             Name

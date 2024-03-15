@@ -7,11 +7,19 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+type Nearby{
+  image String
+  timeToReach String 
+  title String
+}
 model Project {
   id          String    @id @default(auto()) @map("_id") @db.ObjectId
   slug        String    @unique
   title       String    @unique @db.String
   description String
+  highlight   String?
+  highlightImage String? 
+  nearby      Nearby[]
   images      String[]
   address1    String
   address2    String

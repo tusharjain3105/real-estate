@@ -8,7 +8,7 @@ import { getProjectsSubtabs } from "@/server-actions";
 
 const Footer = async () => {
   return (
-    <footer className="bg-orange-400 text-white shadow">
+    <footer className="bg-orange-400 text-white shadow border-t-4 border-yellow-600 ">
       <section className="p-2 md:px-20 md:py-10 grid md:grid-cols-[1.5fr_1fr_1fr_1.5fr] gap-5">
         <div>
           <Logo />
